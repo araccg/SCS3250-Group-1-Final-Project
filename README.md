@@ -55,6 +55,9 @@ player_data.csv: Very similar to Players.csv, but with an important feature: the
 
 In order to get the most recent data (2018 and 2019), we turned to Basketball-reference.com (4). our Kaggle dataset came from this website, so as we will see merging the two datasets was straightforward. Basketball Reference also allows users to run queries, export directly to csv, and view a glossary containing definitions for every statistic in their database (5). We have included a number of these definitions in the 'Glossary' section to provide explanations of any technical basketball terminology.
 
+4. Pre-Preparation
+Considering that PER is a quantitative variable, we decided that our model would be built using linear regression. To begin this process, we imported the libraries necessary for data wrangling, analysis, modelling, and visualization.Next, we read in our data from CSV's sourced from Kaggle and a scraping of basketball-reference.com. As we will see, these data files are quite structured and clean. We are quite confident in the quality of this data given that the NBA publishes statistical data for every game and season and has made substantial investments in the technology and infrastructure to ensure data accuracy (6).
+
 5. Data Preparation
 
 Below are the steps we took to prepare the data for modelling:
@@ -96,6 +99,12 @@ The heatmap above shows the correlation coefficients for key numeric relationshi
 
 Next, we've chosen to visualize specific statistical relationships. Plotting points (x-axis below), assists, and field goal percentage, we can see that most players have relatively few assists and points, but there was a scattering of impressive dual-threat seasons with high point and assist totals. This measurement is valuable to understanding how a player creates offense - by themselves, or through their teammates.
 
+8. Baseline Regression Model
+We have prepared, analyzed, and visualized our data, we can begin to build our initial linear regression model and we can see the model run on 25 players. It is clear that the model has potential, as visually we can see that many of the predictions were within +/- 2 of actual PER. In the case of Mike Dunleavy, Terry Dehere and Kenny Green, the model was practically spot on!
+
+When comparing actual and predicted PER, we can see that these factors are strongly correlated. Our model has an R-squared of 0.68, mean absolute error of ~2.19, mean squared error of ~8.36, and root mean squared error of ~2.89. 
+
+
 9. Improving Model Performance
 
 Now that we have established and evaluated a baseline model, we will explore a few methods that we believe may improve our model's performance. Models will be built following the same methodology as above, and commenting will be intentionally sparser to improve legibility.
@@ -124,52 +133,33 @@ In terms of our model's predictions, there were many instances where our model w
 
 We can take this opportunity to answer the questions we set out in our objectives.
 
- How accurately can we predict peak performance using a player's first 3 NBA seasons?
-
+  How accurately can we predict peak performance using a player's first 3 NBA seasons?
 As we can see with our model's strong R-squared value, a player's first 3 seasons are quite predictive of their future peak performance. This validates the legitimacy of our analysis, as we believe NBA managers should use our findings in evaluating the future potential of young players as outlined above.
-
 An area of future analysis would be improving the model's ability to predict stars who have underwhelming early seasons.
 
    Which current young NBA players are most likely to achieve the highest peak performance?
-
 As shown above, the young NBA players most likely to become superstars according to our model are Nikola Jokic, Giannis Antetokounmpo, Joel Embiid, and Karl-Anthony Towns. NBA managers should prioritize acquiring these high-potential players.
 
    How should NBA managers use our findings?
-
 As outlined above, NBA managers should use our findings to supplement their evaluations of young NBA players to identify future potential. Quantitative analysis serves a key role in this process, and should be used in conjunction with an understanding of the NBA landscape to identify market inefficiencies and inform which players to target in trades and sign to contracts.
+
 13. Glossary
 
-    Player Efficiency Rating: Sums up all a player's positive accomplishments, subtracts the negative accomplishments, and returns a per-minute rating of a player's performance
-
-    Free Throws (FT/FTM): An attempt at the basket from the free throw line (worth one point) given to a player following a foul or other infraction
-
-    Field Goals (FG/FGM): A basket scored while the ball is in play. This includes both 2 pointers and 3 pointers and excludes free throws
-
-    Points (PTS): Accumulated by making field goals or free throws. At the end of regulation, the team with the most points wins the game.
-
-    Assists (AST): The number of passes that lead directly to a made field goal by a player
-
-    Blocks (BL): The number of times a player on the defensive end blocks an attempted shot by the offence
-
-    Rebounds (RB): When a player recovers the ball after a missed shot (on either offense or defense)
-
-    Steals (ST): When a player on defense is able gain possession of the ball through a legal turnover.
-
-    2 Pointers: Field goals made inside or on the three-point line (worth 2 points)
-
-    3 Pointers: Field goals made outside the three-point line (worth 3 points)
-
-    Field Goal Percentage (FG%): Percentage of field goals made to field goals attempted
-
-    Free Throw Percentage (FT%): Percentage of free throws made to free throws attempted
-
-    True Shooting %: A shooting percentage that accounts for the value of the shot made (3 pters, 2 pters and free throws)
-
-    MIN: Minutes Played
-
-    FTr (Free Throw Attempt Ratio): Ratio of free throws attempted per field goal attempted
-
-    3PAr (3-Point Attempt Ratio): Ratio of 3-Points attempted per field goal attempted
+Player Efficiency Rating: Sums up all a player's positive accomplishments, subtracts the negative accomplishments, and returns a per-minute rating of a player's performance
+Free Throws (FT/FTM): An attempt at the basket from the free throw line (worth one point) given to a player following a foul or other infraction
+Field Goals (FG/FGM): A basket scored while the ball is in play. This includes both 2 pointers and 3 pointers and excludes free throws
+Points (PTS): Accumulated by making field goals or free throws. At the end of regulation, the team with the most points wins the game. Assists (AST): The number of passes that lead directly to a made field goal by a player
+Blocks (BL): The number of times a player on the defensive end blocks an attempted shot by the offence
+Rebounds (RB): When a player recovers the ball after a missed shot (on either offense or defense)
+Steals (ST): When a player on defense is able gain possession of the ball through a legal turnover.
+2 Pointers: Field goals made inside or on the three-point line (worth 2 points)
+3 Pointers: Field goals made outside the three-point line (worth 3 points)
+Field Goal Percentage (FG%): Percentage of field goals made to field goals attempted
+Free Throw Percentage (FT%): Percentage of free throws made to free throws attempted
+True Shooting %: A shooting percentage that accounts for the value of the shot made (3 pters, 2 pters and free throws)
+MIN: Minutes Played
+FTr (Free Throw Attempt Ratio): Ratio of free throws attempted per field goal attempted
+3PAr (3-Point Attempt Ratio): Ratio of 3-Points attempted per field goal attempted
 
 14. Sources
 
