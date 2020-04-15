@@ -1,5 +1,5 @@
 # SCS3250-Group-1-Final-Project
-NBA Emerging Trends & Player Archetype Clusters
+Predicting Basketball's Next Superstar
 
 Team 1: Araceli Cuellar, Ghufran khan, Ketan Khanna, Owen Kewell, Ryan Acker
 
