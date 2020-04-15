@@ -21,7 +21,7 @@ Table of Contents
 
 
 
-1. Introduction
+Introduction
 
 The primary focus of an NBA team’s executive management is to win basketball games. This is done by assembling the players who can best contribute on both the offensive and defensive ends of the court. While traditional qualitative scouting of player performance remains indispensable, teams are increasingly relying on statistical analysis and predictive modeling to gain a competitive advantage, with many teams employing data scientists and statisticians (1). These quantitative assessments can help inform key managerial decisions, such as drafting and contract allocation, so as to ensure teams receive a positive return (in terms of basketball performance) on the investment they make in players. In particular, quantitative analysis can leverage data from an NBA player's past performance to predict their future value. Given that many members of our group are passionate sports and basketball fans, we have chosen to explore this topic for our project.
 
