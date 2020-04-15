@@ -19,6 +19,8 @@ Table of Contents
 13. Glossary
 14. Sources
 
+
+
 1. Introduction
 
 The primary focus of an NBA team’s executive management is to win basketball games. This is done by assembling the players who can best contribute on both the offensive and defensive ends of the court. While traditional qualitative scouting of player performance remains indispensable, teams are increasingly relying on statistical analysis and predictive modeling to gain a competitive advantage, with many teams employing data scientists and statisticians (1). These quantitative assessments can help inform key managerial decisions, such as drafting and contract allocation, so as to ensure teams receive a positive return (in terms of basketball performance) on the investment they make in players. In particular, quantitative analysis can leverage data from an NBA player's past performance to predict their future value. Given that many members of our group are passionate sports and basketball fans, we have chosen to explore this topic for our project.
@@ -28,26 +30,28 @@ In order to predict player performance, we must first quantify performance. Than
 We have selected peak career PER as the target for our predictive model because we believe that PER is a strong measure of a player’s overall performance. PER is multi-faceted: the formula to calculate PER includes traditional metrics such as points, assists, blocks, rebounds (both offensive and defensive), steals and 3 pointers, alongside efficiency metrics like free throw percentage (FT%) and field goal percentage (%) (2). By combining these variables with one another, PER provides a strong (albeit imperfect) assessment of a basketball player's overall performance, and therefore their overall contributions toward winning basketball games.
 
 Peak PER is defined as the max PER a player achieves during their career. PER is calculated each season. So the season with the highest PER is the max. This max reflects the highest level of performance a player is able to achieve during their career.
+
 2. Objectives
 
 In this analysis, our main objective is to develop a model capable of predicting a player's peak PER - in other words how good they were in their best season - by leveraging data from that player's first 3 seasons. We have chosen first 3 seasons as a representation of early-career performance.
 
 Within this main objective, we hope to answer multiple key questions:
 
-    How accurately can we predict peak performance using a player's first 3 NBA seasons?
-    Which current young NBA players are most likely to achieve the highest peak performance? Who should teams target?
-    How should NBA managers use our findings?
+How accurately can we predict peak performance using a player's first 3 NBA seasons?
+Which current young NBA players are most likely to achieve the highest peak performance? Who should teams target?
+How should NBA managers use our findings?
 
 Our hypothesis is that a player's first 3 seasons are highly predictive of their career peak PER. Anectodally, players such as Michael Jordan, Lebron James and Shaquille O’Neal all performed extremely well during their first 3 seasons, and continued to develop into some of the greatest basketball players of all time. Building a predictive model will allow us to validate or disprove this hypothesis. Additionally, our model will be useful in determining to what extent executive management can and should utilize data and predictive modeling to determine an NBA player's future productivity.
+
 3. Data Source
 
 Our primary dataset was found on Kaggle (3) and contains information on every NBA player between 1950 and 2017.
 
 The data was broken down by season and featured three csv files:
 
-    Season_Stats.csv: In-game player statistics. This file was the most crucial for our analysis.
-    Players.csv: Information on the players such as height, weight and city of birth. We omitted this file from our analysis.
-    player_data.csv: Very similar to Players.csv, but with an important feature: the year the player began their career.
+Season_Stats.csv: In-game player statistics. This file was the most crucial for our analysis.
+Players.csv: Information on the players such as height, weight and city of birth. We omitted this file from our analysis.
+player_data.csv: Very similar to Players.csv, but with an important feature: the year the player began their career.
 
 In order to get the most recent data (2018 and 2019), we turned to Basketball-reference.com (4). our Kaggle dataset came from this website, so as we will see merging the two datasets was straightforward. Basketball Reference also allows users to run queries, export directly to csv, and view a glossary containing definitions for every statistic in their database (5). We have included a number of these definitions in the 'Glossary' section to provide explanations of any technical basketball terminology.
 
@@ -55,7 +59,7 @@ In order to get the most recent data (2018 and 2019), we turned to Basketball-re
 
 Below are the steps we took to prepare the data for modelling:
 
-    Identified and removed columns made up of entirely missing data. These rows were empty placeholders that served to physically separate sections of data on basketball-reference.com (for visual purposes).
+   Identified and removed columns made up of entirely missing data. These rows were empty placeholders that served to physically separate sections of data on basketball-reference.com (for visual purposes).
     Combined the 1950-2017 data with the 2018 and 2019 data. This was easy since they have matching features.
     Using our basketball domain knowledge, we identified and removed the features that we did not believe would be relevent to the model's prediction of PER. We did this to manage model complexity and ensure its ability to generalize to new data.
     Removed the rows where player name was missing. There were few of these rows and having a value for player name is essential to our analysis, so we chose to remove them rather than invest the time to impute them.
@@ -69,7 +73,7 @@ Below are the steps we took to prepare the data for modelling:
 
 Next, we set out to build the data on which our model would be trained. In order to do this, we made a number of decisions:
 
-    We filtered to remove missing row values and only include data between 1984 and 2006. We wanted to limit our reliance on data from the 1950's, 1960's, and 1970's, as the game of basketball has changed substantially since then.
+   We filtered to remove missing row values and only include data between 1984 and 2006. We wanted to limit our reliance on data from the 1950's, 1960's, and 1970's, as the game of basketball has changed substantially since then.
     We filtered on our engineered 'Season' feature to only include player data from their first 3 seasons.
     We deleted the features that were intentionally omitted from our model.
     A 3-year average was calculated for each remaining feature.
@@ -120,17 +124,17 @@ In terms of our model's predictions, there were many instances where our model w
 
 We can take this opportunity to answer the questions we set out in our objectives.
 
-    How accurately can we predict peak performance using a player's first 3 NBA seasons?
+ How accurately can we predict peak performance using a player's first 3 NBA seasons?
 
 As we can see with our model's strong R-squared value, a player's first 3 seasons are quite predictive of their future peak performance. This validates the legitimacy of our analysis, as we believe NBA managers should use our findings in evaluating the future potential of young players as outlined above.
 
 An area of future analysis would be improving the model's ability to predict stars who have underwhelming early seasons.
 
-    Which current young NBA players are most likely to achieve the highest peak performance?
+   Which current young NBA players are most likely to achieve the highest peak performance?
 
 As shown above, the young NBA players most likely to become superstars according to our model are Nikola Jokic, Giannis Antetokounmpo, Joel Embiid, and Karl-Anthony Towns. NBA managers should prioritize acquiring these high-potential players.
 
-    How should NBA managers use our findings?
+   How should NBA managers use our findings?
 
 As outlined above, NBA managers should use our findings to supplement their evaluations of young NBA players to identify future potential. Quantitative analysis serves a key role in this process, and should be used in conjunction with an understanding of the NBA landscape to identify market inefficiencies and inform which players to target in trades and sign to contracts.
 13. Glossary
